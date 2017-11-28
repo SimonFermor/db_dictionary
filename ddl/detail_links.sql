@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS `detail_links` (
   `table_name` varchar(50) NOT NULL,
   `link_colum_position` smallint(6) NOT NULL,
   `anchor_reference_column` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

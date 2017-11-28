@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS `mapping_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mapping` varchar(50) DEFAULT NULL,
   `mapping_hint` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

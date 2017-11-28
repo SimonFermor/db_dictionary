@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS `table_columns` (
   `table_column_id` int(11) NOT NULL AUTO_INCREMENT,
   `table_id` int(11) DEFAULT NULL,
   `column_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`table_column_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

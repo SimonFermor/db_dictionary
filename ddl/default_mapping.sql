@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS `default_mapping` (
   `maximum_characters` smallint(6) DEFAULT NULL,
   `column_width` smallint(6) NOT NULL,
   `mapping` varchar(25) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

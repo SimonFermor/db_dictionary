@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS `lookups` (
   `column_name` varchar(50) DEFAULT NULL,
   `table_name` varchar(50) DEFAULT NULL,
   `query_where` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS `tables` (
   `name` varchar(50) NOT NULL,
   `title` varchar(50) DEFAULT NULL,
   `allow_delete` bit(1) NOT NULL DEFAULT b'1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
   `detail_link_column_id` int(11) DEFAULT NULL,
   `hint` varchar(50) DEFAULT NULL,

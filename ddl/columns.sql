@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS `columns` (
   `name` varchar(50) NOT NULL,
   `order_index` smallint(6) NOT NULL,
   `title` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `width` smallint(6) NOT NULL,
   `editable` bit(1) NOT NULL,
   `mapping` varchar(25) NOT NULL,
