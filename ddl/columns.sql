@@ -13,19 +13,20 @@
 -- Dumping structure for table table_edit.columns
 CREATE TABLE IF NOT EXISTS `columns` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `order_index` smallint(6) NOT NULL,
-  `title` varchar(50) NOT NULL,
+  `order_index` smallint(6) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `width` smallint(6) NOT NULL,
-  `editable` bit(1) NOT NULL,
-  `mapping` varchar(25) NOT NULL,
-  `hint` varchar(100) NOT NULL,
-  `encrypted` bit(1) NOT NULL,
-  `validation_type_id` int(11) NOT NULL,
+  `width` smallint(6) DEFAULT NULL,
+  `editable` bit(1) DEFAULT NULL,
+  `fk_table_id` int(11) DEFAULT NULL,
+  `ui_data_type_id` int(11) DEFAULT NULL,
+  `hint` varchar(100) DEFAULT NULL,
+  `encrypted` bit(1) DEFAULT NULL,
+  `validation_type_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
