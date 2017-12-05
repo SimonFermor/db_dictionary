@@ -60,7 +60,8 @@ and e1.`column_name` = e2.`name`
 join
 
 ( # table edit schema and table ids and names
-	select s.id as schema_id, s.name as schema_name, t.id as table_id, t.name as table_name
+	select s.id as schema_id, s.name as schema_name, 
+		t.id as table_id, t.name as table_name
 	from table_edit.`schemas` as s
 	join table_edit.schema_tables as st
 	on s.id = st.schema_id
@@ -71,6 +72,5 @@ join
 on e1.table_schema = e3.schema_name
 and e1.table_name = e3.table_name
 
-where e3.schema_id = '21'
 order by e1.column_name, e2.name
 ;

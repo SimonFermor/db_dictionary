@@ -3,10 +3,13 @@ insert into table_edit.schema_tables
 
 select s.id as schema_id, t.id as table_id
 from information_schema.`tables` as i
+
 inner join table_edit.`schemas` as s 
 on i.table_schema = s.name
+
 inner join table_edit.`tables` as t 
 on i.table_name = t.name
+
 where i.TABLE_TYPE = 'BASE TABLE'
 and table_schema not in ('mysql', 'perfomance_schema', 'test')
 and not exists (
