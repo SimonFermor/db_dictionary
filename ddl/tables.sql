@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `tables` (
   `detail_link_column_id` int(11) DEFAULT NULL,
   `hint` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -10,16 +10,11 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping structure for table table_edit.default_mapping
-CREATE TABLE IF NOT EXISTS `default_mapping` (
+-- Dumping structure for table table_edit.form_configuration_sections
+CREATE TABLE IF NOT EXISTS `form_configuration_sections` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `data_type` varchar(25) NOT NULL,
-  `minimum_characters` smallint(6) NOT NULL,
-  `maximum_characters` smallint(6) DEFAULT NULL,
-  `column_width` smallint(6) NOT NULL,
-  `mapping` varchar(25) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `deleted_at` timestamp NULL DEFAULT NULL,
+  `form_configuration_id` int(11) DEFAULT NULL,
+  `section_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

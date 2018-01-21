@@ -10,15 +10,18 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping structure for table table_edit.table_columns
-CREATE TABLE IF NOT EXISTS `table_columns` (
+-- Dumping structure for table table_edit.ui_data_type_defaults
+CREATE TABLE IF NOT EXISTS `ui_data_type_defaults` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `table_id` int(11) DEFAULT NULL,
-  `column_id` int(11) DEFAULT NULL,
+  `data_type` varchar(25) NOT NULL,
+  `minimum_characters` smallint(6) DEFAULT NULL,
+  `maximum_characters` smallint(6) DEFAULT NULL,
+  `column_width` smallint(6) DEFAULT NULL,
+  `ui_data_type_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -13,12 +13,13 @@
 -- Dumping structure for table table_edit.columns
 CREATE TABLE IF NOT EXISTS `columns` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_index` smallint(6) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
+  `sort_key` int(11) DEFAULT NULL,
   `description` varchar(100) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `width` smallint(6) DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
   `editable` bit(1) DEFAULT NULL,
   `fk_table_id` int(11) DEFAULT NULL,
   `ui_data_type_id` int(11) DEFAULT NULL,
