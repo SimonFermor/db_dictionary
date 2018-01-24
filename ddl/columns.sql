@@ -21,11 +21,12 @@ CREATE TABLE IF NOT EXISTS `columns` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `width` int(11) DEFAULT NULL,
   `editable` bit(1) DEFAULT NULL,
-  `fk_table_id` int(11) DEFAULT NULL,
+  `fk_column_id` int(11) DEFAULT NULL,
   `ui_data_type_id` int(11) DEFAULT NULL,
   `hint` varchar(100) DEFAULT NULL,
   `encrypted` bit(1) DEFAULT NULL,
   `validation_type_id` int(11) DEFAULT NULL,
+  `data_type` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
