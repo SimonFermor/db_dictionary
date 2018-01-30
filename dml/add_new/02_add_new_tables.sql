@@ -10,6 +10,7 @@ inner join table_edit.`schemas` as s
 on i.table_schema = s.name
 
 where i.TABLE_TYPE = 'BASE TABLE'
+and s.name = 'apps'
 and i.table_schema not in ('mysql', 'performance_schema','information_schema')
 and not exists (
 	# Schema tables which already exist in table edit

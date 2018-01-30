@@ -24,14 +24,14 @@ from
 		# columns that are already in table edit
 		select *
 		from table_edit.schemas as s
-		inner join table_edit.schema_tables as st 
-		on s.id = st.schema_id
-		inner join table_edit.tables as t
-		on t.id = st.table_id
-		inner join table_edit.table_columns as tc
-		on t.id = tc.table_id
-		inner join table_edit.columns as c
-		on tc.column_id = c.id
+			inner join table_edit.schema_tables as st 
+			on s.id = st.schema_id
+				inner join table_edit.tables as t
+				on t.id = st.table_id
+					inner join table_edit.table_columns as tc
+					on t.id = tc.table_id
+						inner join table_edit.columns as c
+						on tc.column_id = c.id
 		where s.name = i1.table_schema
 		and t.name = i1.table_name
 		and c.name = i1.column_name
@@ -72,5 +72,8 @@ join
 on e1.table_schema = e3.schema_name
 and e1.table_name = e3.table_name
 
-order by e1.column_name, e2.name
+where e1.table_schema = 'apps'
+and e1.table_name = 'apps'
+
+order by column_id, e1.column_name, e2.name
 ;
