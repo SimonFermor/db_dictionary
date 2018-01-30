@@ -1,8 +1,9 @@
 select s.id as schema_id, s.name as schema_name, 
 	t.id as table_id, t.name as table_name,
-	c.order_index, c.id as column_id, c.name as column_name,
+	c.sort_key, c.id as column_id, c.name as column_name,
 	c.description, c.width, c.editable, c.fk_table_id, c.ui_data_type_id,
-	c.hint, c.encrypted, c.validation_type_id
+	c.hint, c.encrypted, c.validation_type_id, c.data_type
+	
 from table_edit.schemas as s
 
 join table_edit.schema_tables as st
@@ -17,7 +18,8 @@ on t.id = tc.table_id
 join table_edit.`columns` as c
 on tc.column_id = c.id
 
-where t.id = 1
+where t.id = 2
 
-order by s.id, t.id, c.order_index
+order by s.id, t.id, c.sort_key
+
 ;

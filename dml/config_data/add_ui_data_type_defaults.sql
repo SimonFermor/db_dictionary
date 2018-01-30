@@ -6,37 +6,34 @@ INSERT INTO table_edit.ui_data_type_defaults
 VALUES ('', '', '', '')
 ***/
 
-INSERT INTO table_edit.ui_data_type_defaults
-(data_type, column_width, mapping)
-VALUES ('bit', '65', 'Boolean');
+insert into table_edit.ui_data_type_defaults
+(data_type, column_width, ui_data_type_id)
 
-INSERT INTO table_edit.ui_data_type_defaults
-(data_type, column_width, mapping)
-VALUES ('int', '50', 'Integer');
+select data_type, column_width, u.id as ui_data_type_id
+from
+(
+	select 'bit' as data_type, '65' as column_width, 'Boolean' as ui_data_type_name
+	union
+	select 'int' as data_type, '50' as colummn_width, 'Integer' as ui_data_type_name
+	union
+	select 'money' as data_type, '50' as column_width, 'Money' as ui_data_type_name
+	union
+	select 'numeric' as data_type, '50' as column_width, 'Number' as ui_data_type_name
+	union
+	select 'smalldatetime' as data_type, '50' as column_width, 'Datetime' as ui_data_type_name
+	union
+	select 'smallint' as data_type, '50' as column_width, 'Integer' as ui_data_type_name
+	union
+	select 'text' as data_type, '250' as column_width, 'Textarea' as ui_data_type_name
+	union
+	select 'tinyint' as data_type, '20' as column_width, 'Integer' as ui_data_type_name
+	
+) as i
 
-INSERT INTO table_edit.ui_data_type_defaults
-(data_type, column_width, mapping)
-VALUES ('money', '50', 'Money');
+join ui_data_types as u
+on binary u.name = i.ui_data_type_name
 
-INSERT INTO table_edit.ui_data_type_defaults
-(data_type, column_width, mapping)
-VALUES ('numeric', '50', 'Number');
 
-INSERT INTO table_edit.ui_data_type_defaults
-(data_type, column_width, mapping)
-VALUES ('smalldatetime', '50', 'Datetime');
-
-INSERT INTO table_edit.ui_data_type_defaults
-(data_type, column_width, mapping)
-VALUES ('smallint','50', 'Integer');
-
-INSERT INTO table_edit.ui_data_type_defaults
-(data_type, column_width, mapping)
-VALUES ('text','250', 'Textarea');
-
-INSERT INTO table_edit.ui_data_type_defaults
-(data_type, column_width, mapping)
-VALUES ('tinyint', '20', 'Integer');
 
 /*** char ***/
 INSERT INTO table_edit.ui_data_type_defaults

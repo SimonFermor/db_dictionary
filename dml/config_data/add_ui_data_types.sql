@@ -9,6 +9,7 @@ values
 
 ('Date',''),
 ('Datetime',''),
+('Time',''),
 
 ('Integer',''),
 ('Number',''),
@@ -19,3 +20,6 @@ values
 ('Rich Text',''),
 
 ('URL','');
+
+('Binary','');
+
