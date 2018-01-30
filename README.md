@@ -1,2 +1,2 @@
 # table-edit
-A database design for use with generic front end templates to view and edit data in other database tables
+A database design for documenting databases and for driving a generic form for viewing and editing table data in any documented table.
