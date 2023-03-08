@@ -1,18 +1,10 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               10.0.21-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win64
--- HeidiSQL Version:             9.3.0.4984
--- --------------------------------------------------------
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping structure for table table_edit.ui_data_type_defaults
 CREATE TABLE IF NOT EXISTS `ui_data_type_defaults` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `_id` int(11) NOT NULL AUTO_INCREMENT,
   `data_type` varchar(25) NOT NULL,
   `minimum_characters` smallint(6) DEFAULT NULL,
   `maximum_characters` smallint(6) DEFAULT NULL,
@@ -20,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `ui_data_type_defaults` (
   `ui_data_type_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
