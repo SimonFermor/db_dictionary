@@ -11,15 +11,14 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping structure for table dictionary.schema_tables
-CREATE TABLE IF NOT EXISTS `schema_tables` (
+-- Dumping structure for table dictionary.data_types
+CREATE TABLE IF NOT EXISTS `data_types` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
-  `schema_id` int(11) NOT NULL,
-  `table_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `deleted_at` timestamp NULL DEFAULT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 
