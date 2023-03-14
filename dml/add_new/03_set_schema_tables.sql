@@ -6,14 +6,14 @@ from
 
 (	# Tables from information_schema that are not yet in schema_tables
 	# Ordering etc for use with duplication of table names, not necessary at present as only one schema
-	select s.id as schema_id, i1.table_name , i2.table_schema, count(*) as row_number
+	select s._id as schema_id, i1.table_name , i2.table_schema, count(*) as row_number
 	from information_schema.`tables` as i1
 	
 	inner join information_schema.`TABLES` as i2 
 	on i1.table_name = i2.table_name
 	and i1.create_time >= i2.create_time
 	
-	inner join table_edit.schemas as s
+	inner join dictionary.schemas as s
 	on s.name = i2.table_schema
 	
 	where i1.TABLE_TYPE = 'BASE TABLE'
@@ -24,13 +24,13 @@ from
 	
 	and not exists (
 		select *
-		from table_edit.`schemas` as s2
+		from dictionary.`schemas` as s2
 		
-		inner join table_edit.`schema_tables` as x2
-		on s2.id = x2.schema_id
+		inner join dictionary.`schema_tables` as x2
+		on s2._id = x2.schema_id
 		
-		inner join table_edit.`tables` as t2
-		on x2.table_id = t2.id
+		inner join dictionary.`tables` as t2
+		on x2.table_id = t2._id
 		
 		where s2.name = i2.table_schema
 		and t2.name = i1.table_name
@@ -42,16 +42,16 @@ from
 inner join
 
 (	# Ordered list of tables not yet in schema_tables
-	select t1.name as table_name, t2.id as table_id, count(*) as row_number
+	select t1.name as table_name, t2._id as table_id, count(*) as row_number
 	from tables as t1
 	
 	inner join tables as t2
 	on t1.name = t2.name
-	and t2.id >= t1.id
-	and t1.id not in (select table_id from schema_tables)
-	and t2.id not in (select table_id from schema_tables)
+	and t2._id >= t1._id
+	and t1._id not in (select table_id from schema_tables)
+	and t2._id not in (select table_id from schema_tables)
 	
-	group by t1.name, t2.id
+	group by t1.name, t2._id
 ) st2
 
 on st1.table_name = st2.table_name
