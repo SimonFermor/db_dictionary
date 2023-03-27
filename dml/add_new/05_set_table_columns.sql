@@ -1,3 +1,6 @@
+SET @SCHEMA_NAME = 'dictionary';
+SET @TABLE_NAME = 'data_types';
+
 insert into table_fields
 (table_id, field_id) 
 
@@ -79,8 +82,8 @@ join
 on e1.table_schema = e3.schema_name
 and e1.table_name = e3.table_name
 
-where e1.table_schema = 'apps'
-and e1.table_name = 'apps'
+where e1.table_schema = @SCHEMA_NAME
+and e1.table_name = @TABLE_NAME
 
 order by field_id, e1.column_name, e2.name
 ;

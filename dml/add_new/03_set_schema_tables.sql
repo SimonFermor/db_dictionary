@@ -1,3 +1,5 @@
+SET @SCHEMA_NAME = 'dictionary';
+
 insert into schema_tables
 (schema_id, table_id)
 
@@ -20,7 +22,8 @@ from
 	and i2.TABLE_TYPE = 'BASE TABLE'
 	
 	and i1.table_schema not in ('mysql', 'performance_schema','information_schema')
-	and i1.table_schema = 'apps'
+	and i1.table_schema = @SCHEMA_NAME
+	AND i2.TABLE_SCHEMA = @SCHEMA_NAME
 	
 	and not exists (
 		select *

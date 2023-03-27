@@ -1,3 +1,6 @@
+SET @SCHEMA_NAME = 'dictionary';
+SET @TABLE_NAME = 'data_types';
+
 insert into dictionary.fields 
 (name, data_type_id)
 
@@ -9,8 +12,8 @@ ON i.DATA_TYPE = d.name
 
 where i.table_schema not in ('mysql', 'performance_schema','information_schema')
 
-and i.table_schema = 'apps'
-and i.TABLE_NAME = 'apps'
+and i.table_schema = @SCHEMA_NAME
+and i.TABLE_NAME = @TABLE_NAME
 
 and not exists
 (	select *

@@ -1,4 +1,4 @@
-# truncate table table_edit.schema_tables;
-# truncate table table_edit.tables;
-truncate table table_edit.table_columns;
-truncate table table_edit.columns;
+truncate table dictionary.schemas;
+truncate table dictionary.schema_tables;
+truncate table dictionary.tables;
+truncate table dictionary.table_fields;

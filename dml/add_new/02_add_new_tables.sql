@@ -1,6 +1,8 @@
-# Add table names for tables that are not currently listed under table_edit schemas
+/* Add table names for tables that are not currently listed under table_edit schemas */
 
-insert into dictionary.`fields`
+SET @SCHEMA_NAME = 'dictionary';
+ 
+insert into dictionary.tables
 (name)
 
 select i.table_name
@@ -10,7 +12,7 @@ inner join dictionary.`schemas` as s
 on i.table_schema = s.name
 
 where i.TABLE_TYPE = 'BASE TABLE'
-and s.name = 'apps'
+and s.name = @SCHEMA_NAME
 and i.table_schema not in ('mysql', 'performance_schema','information_schema')
 
 and not exists (

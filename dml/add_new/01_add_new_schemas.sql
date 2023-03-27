@@ -1,4 +1,6 @@
-insert into dictionary.`schemas` 
+/* Add new schemas */
+
+insert into dictionary.schemas 
 (name)
 
 select schema_name
