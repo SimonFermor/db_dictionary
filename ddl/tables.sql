@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `tables` (
   `description` varchar(500) DEFAULT NULL,
   `hint` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 

@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `table_fields` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `sort_key` int(11) DEFAULT NULL,
   PRIMARY KEY (`_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 

@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `fields` (
   `validation_type_id` int(11) DEFAULT NULL,
   `data_type_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 
