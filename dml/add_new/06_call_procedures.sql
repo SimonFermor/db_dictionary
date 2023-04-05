@@ -1,0 +1,1 @@
+CALL add_new_tables('apps');
