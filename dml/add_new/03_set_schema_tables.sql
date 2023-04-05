@@ -1,4 +1,12 @@
-SET @SCHEMA_NAME = 'dictionary';
+delimiter //
+
+CREATE PROCEDURE set_schema_tables(IN SCHEMA_NAME CHAR(25))
+
+MODIFIES SQL DATA
+
+BEGIN
+
+SET @SCHEMA_NAME = SCHEMA_NAME;
 
 insert into schema_tables
 (schema_id, table_id)
@@ -60,3 +68,8 @@ inner join
 on st1.table_name = st2.table_name
 and st1.row_number = st2.row_number
 ;
+
+END;
+//
+
+delimiter ;

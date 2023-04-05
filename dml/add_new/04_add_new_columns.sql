@@ -1,5 +1,13 @@
-SET @SCHEMA_NAME = 'dictionary';
-SET @TABLE_NAME = 'data_types';
+delimiter //
+
+CREATE PROCEDURE add_new_columns(IN SCHEMA_NAME CHAR(25), IN TABLE_NAME CHAR(25))
+
+MODIFIES SQL DATA
+
+BEGIN
+
+SET @SCHEMA_NAME = SCHEMA_NAME;
+SET @TABLE_NAME = TABLE_NAME;
 
 insert into dictionary.fields 
 (name, data_type_id)
@@ -35,3 +43,8 @@ and not exists
 	and t.name = i.TABLE_NAME
 	and c.name = i.COLUMN_NAME
 )
+
+END;
+//
+
+delimiter ;

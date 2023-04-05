@@ -1,5 +1,13 @@
 /* Add new schemas */
 
+delimiter //
+
+CREATE PROCEDURE add_new_schemas()
+
+MODIFIES SQL DATA
+
+BEGIN
+
 insert into dictionary.schemas 
 (name)
 
@@ -9,3 +17,8 @@ where schema_name not in
 (
 	select name from dictionary.schemas
 );
+
+END;
+//
+
+delimiter ;
