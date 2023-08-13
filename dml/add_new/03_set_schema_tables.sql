@@ -1,3 +1,5 @@
+/* Set schema for newly inserted table names - depends on names being from same schema */
+
 delimiter //
 
 CREATE PROCEDURE set_schema_tables(IN SCHEMA_NAME CHAR(25))

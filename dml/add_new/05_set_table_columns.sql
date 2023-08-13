@@ -1,3 +1,5 @@
+/* Add fields where they are missing from table_fields table */
+
 SET @SCHEMA_NAME = 'dictionary';
 SET @TABLE_NAME = 'data_types';
 

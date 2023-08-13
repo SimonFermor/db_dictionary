@@ -1,3 +1,5 @@
+/* Add new columns (field names) - names are considered to relate to the same data irrespective of source table... */
+
 delimiter //
 
 CREATE PROCEDURE add_new_columns(IN SCHEMA_NAME CHAR(25), IN TABLE_NAME CHAR(25))
