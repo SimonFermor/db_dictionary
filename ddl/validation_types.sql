@@ -1,8 +1,5 @@
 -- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               10.0.21-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win64
--- HeidiSQL Version:             11.0.0.5919
+-- Server version:               10.0.21-MariaDB
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -19,9 +16,7 @@ CREATE TABLE IF NOT EXISTS `validation_types` (
   `description` varchar(50) DEFAULT NULL,
   `regular_expression` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
-
--- Data exporting was unselected.
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
