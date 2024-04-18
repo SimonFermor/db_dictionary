@@ -1,4 +1,13 @@
 # SQL Database Dictionary
-A database design for storing additional information about a SQL database and the database schemas, tables, columns etc.
 
-This information can then be used for building an interface to view, browse and update data in the database.
+A database design for storing additional information (metadata), about a SQL database and the database schemas, tables, columns etc.
+
+This information can then be used for reporting on the database and in applications viewing and editing the data.
+
+## Installation
+
+1. Create a database named 'dictionary' for storing database metadata
+2. Run the SQL scripts in the /ddl folder to create tables
+3. Run the SQL scripts in the /dml/add_new folder to create stored procedures (proc files)
+4. Run the SQL script /dml/call_procedures.sql to call procs
+5. Run the SQL script /dml/set_table_columns

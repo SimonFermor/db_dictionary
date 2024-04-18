@@ -1,7 +1,7 @@
 /* Add fields where they are missing from table_fields table */
 
-SET @SCHEMA_NAME = 'dictionary';
-SET @TABLE_NAME = 'data_types';
+SET @SCHEMA_NAME = 'apps';
+SET @TABLE_NAME = 'apps';
 
 insert into table_fields
 (table_id, field_id) 
