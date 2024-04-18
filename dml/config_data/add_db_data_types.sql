@@ -1,5 +1,5 @@
-insert into db_data_types
-(data_type)
+insert into data_types
+(name)
 
 select distinct DATA_TYPE
 from information_schema.`COLUMNS`;
