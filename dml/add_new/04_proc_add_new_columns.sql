@@ -44,7 +44,7 @@ and not exists
 	where s.name = i.TABLE_SCHEMA
 	and t.name = i.TABLE_NAME
 	and c.name = i.COLUMN_NAME
-)
+);
 
 END;
 //
