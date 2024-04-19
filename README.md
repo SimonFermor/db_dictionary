@@ -11,3 +11,8 @@ This information can then be used for reporting on the database and in applicati
 3. Run the SQL scripts in the /dml/add_new folder to create stored procedures (proc files)
 4. Run the SQL script /dml/call_procedures.sql to call procs
 5. Run the SQL script /dml/set_table_columns
+
+## Folders
+
+/check_queries - SQL queries for checking data
+/scratch - works in progress / potentially superseded
