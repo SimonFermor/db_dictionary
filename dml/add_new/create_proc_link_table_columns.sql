@@ -3,7 +3,7 @@
 SET @SCHEMA_NAME = 'apps';
 SET @TABLE_NAME = 'apps';
 
-insert into table_fields
+insert into table_columns
 (table_id, field_id) 
 
 # columns that are not yet in table_edit.table_columns
@@ -26,7 +26,7 @@ from
 	
 	where not exists (
 		
-		# columns that are already in table edit
+		# columns that are already in the dictionary
 		select *
 		from dictionary.schemas as s
 		
