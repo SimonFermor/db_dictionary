@@ -11,7 +11,7 @@ BEGIN
 SET @SCHEMA_NAME = SCHEMA_NAME;
 SET @TABLE_NAME = TABLE_NAME;
 
-insert into dictionary.fields 
+insert into dictionary.columns 
 (name, data_type_id)
 
 SELECT i.COLUMN_NAME, d._id

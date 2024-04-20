@@ -2,7 +2,7 @@
 
 delimiter //
 
-CREATE PROCEDURE add_new_data_types()
+CREATE PROCEDURE add_db_data_types()
 
 MODIFIES SQL DATA
 

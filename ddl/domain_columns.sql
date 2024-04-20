@@ -9,10 +9,10 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Structure for table dictionary.domain_fields
-CREATE TABLE IF NOT EXISTS `domain_fields` (
+CREATE TABLE IF NOT EXISTS `domain_columns` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `domain_id` int(11) DEFAULT NULL,
-  `field_id` int(11) DEFAULT NULL,
+  `column_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
