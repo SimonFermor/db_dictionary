@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `view_fields` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `view_id` int(11) NOT NULL,
   `position` int(11) DEFAULT NULL,
-  `field_id` int(11) DEFAULT NULL,
+  `column_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`_id`)

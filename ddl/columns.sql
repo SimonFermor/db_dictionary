@@ -9,7 +9,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Structure for table dictionary.fields
-CREATE TABLE IF NOT EXISTS `fields` (
+CREATE TABLE IF NOT EXISTS `columns` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
@@ -17,7 +17,6 @@ CREATE TABLE IF NOT EXISTS `fields` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `size` int(11) DEFAULT NULL,
-  `hint` varchar(100) DEFAULT NULL,
   `validation_type_id` int(11) DEFAULT NULL,
   `data_type_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`_id`) USING BTREE

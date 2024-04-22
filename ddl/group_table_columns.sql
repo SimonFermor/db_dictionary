@@ -9,10 +9,10 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Structure for table dictionary.group_table_fields
-CREATE TABLE IF NOT EXISTS `group_table_fields` (
+CREATE TABLE IF NOT EXISTS `group_table_columns` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) DEFAULT NULL,
-  `table_field_id` int(11) DEFAULT NULL,
+  `table_column_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

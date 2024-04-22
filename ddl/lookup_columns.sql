@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `lookup_columns` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `lookup_id` int(11) NOT NULL,
   `position` int(11) DEFAULT NULL,
-  `field_id` varchar(50) DEFAULT NULL,
+  `column_id` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`_id`)

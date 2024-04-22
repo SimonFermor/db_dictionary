@@ -10,7 +10,7 @@
 -- Structure for table dictionary.lookups
 CREATE TABLE IF NOT EXISTS `lookups` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) DEFAULT NULL,
+  `column_id` int(11) DEFAULT NULL,
   `table_id` int(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
