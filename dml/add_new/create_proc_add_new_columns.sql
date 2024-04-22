@@ -1,4 +1,4 @@
-/* Add new columns (field names) - names are considered to relate to the same data irrespective of source table... */
+/* Add new columns - names are considered to relate to the same data irrespective of source table... */
 
 delimiter //
 
@@ -35,11 +35,11 @@ and not exists
 	inner join dictionary.tables as t
 	on st.table_id = t._id
 		
-	inner join dictionary.table_fields tc
+	inner join dictionary.table_columns tc
 	on t._id = tc.table_id
 		
-	inner join dictionary.fields as c
-	on tc.field_id = c._id
+	inner join dictionary.columns as c
+	on tc.column_id = c._id
 	
 	where s.name = i.TABLE_SCHEMA
 	and t.name = i.TABLE_NAME
