@@ -1,17 +1,25 @@
-/* Add fields where they are missing from table_fields table */
+/* Add new column link for table */
 
-SET @SCHEMA_NAME = 'apps';
-SET @TABLE_NAME = 'apps';
+delimiter //
+
+CREATE PROCEDURE link_table_columns(IN SCHEMA_NAME CHAR(25), IN TABLE_NAME CHAR(25))
+
+MODIFIES SQL DATA
+
+BEGIN
+
+SET @SCHEMA_NAME = SCHEMA_NAME;
+SET @TABLE_NAME = TABLE_NAME;
 
 insert into table_columns
-(table_id, field_id) 
+(table_id, column_id) 
 
 # columns that are not yet in table_edit.table_columns
 select 
 	# e1.table_schema, e1.table_name, e1.column_name, e1.row_number1, 
 	# e3.schema_id, 
 	e3.table_id,
-	e2._id as field_id
+	e2._id as column_id
 from 
 
 ( # columns in the information schema, with row numbers for column name groupings
@@ -36,11 +44,11 @@ from
 		inner join dictionary.tables as t
 		on t._id = st.table_id
 		
-		inner join dictionary.table_fields as tc
+		inner join dictionary.table_columns as tc
 		on t._id = tc.table_id
 		
-		inner join dictionary.fields as c
-		on tc.field_id = c._id
+		inner join dictionary.columns as c
+		on tc.column_id = c._id
 		
 		where s.name = i1.table_schema
 		and t.name = i1.table_name
@@ -53,13 +61,13 @@ join
 
 ( # columns in table edit that have not yet been linked to tables
 	select c1.name, c2._id, count(*) as row_number2
-	from fields as c1
+	from dictionary.columns as c1
 	
-	inner join fields as c2
+	inner join dictionary.columns as c2
 	on c1.name = c2.name
 	and c1._id >= c2._id
 	
-	where c1._id not in (select field_id from table_fields)
+	where c1._id not in (select column_id from table_columns)
 	group by c1.name, c2._id
 	collate latin1_general_ci
 ) as e2
@@ -87,5 +95,9 @@ and e1.table_name = e3.table_name
 where e1.table_schema = @SCHEMA_NAME
 and e1.table_name = @TABLE_NAME
 
-order by field_id, e1.column_name, e2.name
-;
+order by column_id, e1.column_name, e2.name;
+
+END;
+//
+
+delimiter ;
