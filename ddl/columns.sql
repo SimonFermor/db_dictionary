@@ -11,6 +11,7 @@
 -- Structure for table dictionary.fields
 CREATE TABLE IF NOT EXISTS `columns` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
+  `schema_id` INT NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   `description` varchar(100) DEFAULT NULL,

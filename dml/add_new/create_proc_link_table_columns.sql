@@ -34,7 +34,7 @@ from
 	
 	where not exists (
 		
-		# columns that are already in the dictionary
+		# table columns that are already in the dictionary
 		select *
 		from dictionary.schemas as s
 		

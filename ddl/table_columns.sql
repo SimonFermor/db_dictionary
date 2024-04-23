@@ -9,7 +9,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Structure for table dictionary.table_fields
-CREATE TABLE IF NOT EXISTS `table_fields` (
+CREATE TABLE IF NOT EXISTS `table_columns` (
   `_id` int(11) NOT NULL AUTO_INCREMENT,
   `table_id` int(11) DEFAULT NULL,
   `position` int(11) DEFAULT NULL,
