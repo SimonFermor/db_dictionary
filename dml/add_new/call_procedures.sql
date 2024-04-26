@@ -3,8 +3,9 @@
 
 CALL add_new_data_types();
 CALL add_new_schemas();
+CALL add_new_columns('dictionary');
 
 CALL add_new_tables('dictionary');
 CALL link_schema_tables('dictionary');
-CALL add_new_columns('dictionary', 'columns');
-CALL link_table_columns('dictionary', 'columns');
+
+CALL link_table_columns('dictionary');

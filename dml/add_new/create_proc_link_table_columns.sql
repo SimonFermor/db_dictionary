@@ -2,7 +2,7 @@
 
 delimiter //
 
-CREATE PROCEDURE link_table_columns(IN SCHEMA_NAME CHAR(25), IN TABLE_NAME CHAR(25))
+CREATE PROCEDURE link_table_columns(IN SCHEMA_NAME CHAR(25))
 
 MODIFIES SQL DATA
 
