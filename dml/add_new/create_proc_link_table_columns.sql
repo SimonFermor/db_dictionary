@@ -9,30 +9,20 @@ MODIFIES SQL DATA
 BEGIN
 
 SET @SCHEMA_NAME = SCHEMA_NAME;
-SET @TABLE_NAME = TABLE_NAME;
 
+# columns that are not yet in table_edit.table_columns
 insert into table_columns
 (table_id, column_id) 
 
-# columns that are not yet in table_edit.table_columns
-select 
-	# e1.table_schema, e1.table_name, e1.column_name, e1.row_number1, 
-	# e3.schema_id, 
-	e3.table_id,
-	e2._id as column_id
-from 
-
-( # columns in the information schema, with row numbers for column name groupings
-	select i1.table_schema, i1.table_name, i1.column_name, 
-		count(*) as row_number1
+SELECT t2._id AS table_id, c2._id AS column_id
+from
+( # table columns in the information schema
+  # table columns are not in dictionary
+	select i1.table_schema, i1.table_name, i1.column_name
 	from information_schema.`columns` as i1
 	
-	inner join information_schema.`columns` as i2 
-	on i1.column_name = i2.column_name
-	and i1.table_schema = i2.table_schema
-	and i1.table_name >= i2.table_name
-	
-	where not exists (
+	WHERE i1.table_schema = @SCHEMA_NAME
+	and not exists (
 		
 		# table columns that are already in the dictionary
 		select *
@@ -54,48 +44,19 @@ from
 		and t.name = i1.table_name
 		and c.name = i1.column_name
 	)
-	group by i1.table_schema, i1.table_name, i1.column_name
-) as e1
+	group by i1.table_schema, i1.table_name, i1.column_name) AS a
+INNER JOIN dictionary.schemas AS s
+ON a.table_schema = s.name
 
-join
+INNER JOIN dictionary.schema_tables AS st2
+ON s._id = st2.schema_id
 
-( # columns in table edit that have not yet been linked to tables
-	select c1.name, c2._id, count(*) as row_number2
-	from dictionary.columns as c1
-	
-	inner join dictionary.columns as c2
-	on c1.name = c2.name
-	and c1._id >= c2._id
-	
-	where c1._id not in (select column_id from table_columns)
-	group by c1.name, c2._id
-	collate latin1_general_ci
-) as e2
+INNER JOIN dictionary.tables AS t2
+ON st2.table_id = t2._id
+AND a.table_name = t2.name
 
-on e1.`row_number1` = e2.`row_number2`
-and e1.`column_name` = e2.`name`
-
-join
-
-( # table edit schema and table ids and names
-	select s._id as schema_id, s.name as schema_name, 
-		t._id as table_id, t.name as table_name
-	from dictionary.`schemas` as s
-	
-	join dictionary.schema_tables as st
-	on s._id = st.schema_id
-	
-	join dictionary.`tables` as t
-	on st.table_id = t._id
-) as e3
-
-on e1.table_schema = e3.schema_name
-and e1.table_name = e3.table_name
-
-where e1.table_schema = @SCHEMA_NAME
-and e1.table_name = @TABLE_NAME
-
-order by column_id, e1.column_name, e2.name;
+INNER JOIN dictionary.columns AS c2
+ON a.column_name = c2.name;
 
 END;
 //

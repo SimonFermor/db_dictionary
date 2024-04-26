@@ -43,7 +43,7 @@ AND i.table_name NOT IN (
 	WHERE _id NOT IN (SELECT table_id FROM dictionary.schema_tables));
 
 
-END;
+END
 
 //
 
